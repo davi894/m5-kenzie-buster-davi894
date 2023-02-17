@@ -1,5 +1,5 @@
 from rest_framework import permissions
-import ipdb
+
 
 
 class UserPermission(permissions.BasePermission):

@@ -42,7 +42,7 @@ class UserViewsT4Test(APITestCase):
         # STATUS CODE
         self.client.credentials(HTTP_AUTHORIZATION="Bearer " + non_employee_token)
         response = self.client.get(base_url)
-        # ipdb.set_trace()
+       
         expected_status_code = status.HTTP_200_OK
         returned_status_code = response.status_code
         msg = (
@@ -91,7 +91,7 @@ class UserViewsT4Test(APITestCase):
         # STATUS CODE
         self.client.credentials(HTTP_AUTHORIZATION="Bearer " + employee_token)
         response = self.client.get(base_url)
-        # ipdb.set_trace()
+       
         expected_status_code = status.HTTP_200_OK
         returned_status_code = response.status_code
         msg = (
@@ -122,9 +122,7 @@ class UserViewsT4Test(APITestCase):
     def test_if_cannot_update_user_info_without_token(self):
         base_url = self.BASE_URL % self.employee.id
         response = self.client.patch(base_url, data={}, format="json")
-        # import ipdb
-
-        # ipdb.set_trace()
+      
         # STATUS CODE
         expected_status_code = status.HTTP_401_UNAUTHORIZED
         resulted_status_code = response.status_code

@@ -8,7 +8,7 @@ from .serializers import UserSerializer
 from django.shortcuts import render
 from .models import User
 import json
-import ipdb
+
 
 # Create your views here.
 

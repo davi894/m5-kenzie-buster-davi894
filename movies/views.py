@@ -5,7 +5,7 @@ from rest_framework.views import APIView, status
 from rest_framework.response import Response
 from users.pemissions import UserPermission
 from .models import Movie
-import ipdb
+
 
 
 class MovieView(APIView, PageNumberPagination):
@@ -24,7 +24,11 @@ class MovieView(APIView, PageNumberPagination):
     def get(self, req):
         movies = Movie.objects.all()
 
-        result_page = self.paginate_queryset(movies, req, view=self,)
+        result_page = self.paginate_queryset(
+            movies,
+            req,
+            view=self,
+        )
         serializer = MovieSerializer(result_page, many=True)
 
         return self.get_paginated_response(serializer.data)
